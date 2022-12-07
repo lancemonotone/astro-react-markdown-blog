@@ -1,4 +1,5 @@
 ---
+import Layout from "../layouts/Layout.astro";
 const name = "Rus";
 const style = "purple";
 const response = await fetch(
@@ -7,53 +8,58 @@ const response = await fetch(
 const users = await response.json();
 const visible = false;
 ---
+<Layout>
+  
+  <div class="container">
+    <h1 class={style}>Hello {name}</h1>
+  
+    <ul>
+      {
+        users.map((user) => (
+          <li>
+            {Object.keys(user).map((key) => {
+              if (typeof user[key] === "object") {
+                let obj = user[key];
+                return (
+                  <div>
+                    <h3>{key}</h3>{" "}
+                    {Object.keys(obj).map((key) => {
+                      return (
+                        <div>
+                          {key}: {obj[key]}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              } else {
+                return (
+                  <div>
+                    <h2>{key}</h2> {user[key]}
+                  </div>
+                );
+              }
+            })}
+          </li>
+        ))
+      }
+    </ul>
+  
+    {visible ? <p>Visible</p> : <p>Not Visible</p>}
+  </div>
 
-<div class="container">
-  <h1 class={style}>Hello {name}</h1>
-
-  <ul>
-    {
-      users.map((user) => (
-        <li>
-          {Object.keys(user).map((key) => {
-            if (typeof user[key] === "object") {
-              let obj = user[key];
-              return (
-                <div>
-                  <h3>{key}</h3>{" "}
-                  {Object.keys(obj).map((key) => {
-                    return (
-                      <div>
-                        {key}: {obj[key]}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            } else {
-              return (
-                <div>
-                  <h2>{key}</h2> {user[key]}
-                </div>
-              );
-            }
-          })}
-        </li>
-      ))
-    }
-  </ul>
-
-  {visible ? <p>Visible</p> : <p>Not Visible</p>}
-</div>
+</Layout>
 
 <style lang="scss" scoped>
   // :root darker mode styling
     :root {
     --main-bg-color: #1e1e1e;
+    --main-bg-color-lighter: #2e2e2e;; 
+    --main-bg-color-hue: #306A00;
      // not quite white
-    --main-color: #f2e6f2;
+    --main-color: #e9e8cf;
     // what is a complimentary color to  #800080
-    --main-border-color: #cc99cc;
+    --main-border-color: #1C001C;
     }
 
   // html body reset
@@ -92,7 +98,7 @@ const visible = false;
     }
   }
   .purple {
-    background-color: #4d004d;
+    background-color: var(--main-bg-color-hue);
     color: var(--main-color);
     padding: 1rem;
     border: 1px solid var(--main-border-color);
@@ -105,7 +111,7 @@ const visible = false;
     margin: 0;
   }
   li {
-    background-color: var(--main-bg-color);
+    background-color: var(--main-bg-color-lighter);
     padding: 1rem;
     border: 1px solid var(--main-border-color);
     border-radius: 5px;
