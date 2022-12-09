@@ -1,0 +1,28 @@
+---
+export interface CardProps {
+  title: string;
+  description: string;
+  dark?: boolean;
+}
+
+const { title, description, dark = false } = Astro.props as CardProps;
+---
+
+<div class={`card ${dark ? "dark" : ""}`}>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</div>
+
+<style lang="scss">
+  .card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    &.dark {
+      background: #000;
+      color: #fff;
+    }
+  }
+</style>

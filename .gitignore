@@ -22,3 +22,4 @@ pnpm-debug.log*
 # editor-specific files
 .idea/
 .fleet/
+astro-crash-course-main/

@@ -1,0 +1,29 @@
+.tabs {
+  margin-top: 30px;
+
+  .tabs-header {
+    display: flex;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+
+    li {
+      cursor: pointer;
+      margin-right: 20px;
+      text-transform: uppercase;
+      &.active {
+        border-bottom: 2px solid #fff;
+        color: #a741ff;
+      }
+    }
+  }
+
+  .tabs-content {
+    font-size: 18px;
+    padding: 20px;
+    border: 1px solid #333;
+    font-weight: bold;
+    background: #f4f4f4;
+    font-family: "Roboto Mono", monospace;
+  }
+}
