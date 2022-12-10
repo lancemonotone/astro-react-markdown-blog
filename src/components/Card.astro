@@ -13,10 +13,6 @@ const newlineToParagraph = (str: string) => {
   const arr = str.split(newlineChar).map((paragraph: string) => {
     // trim whitespace
     paragraph = paragraph.trim();
-    // remove empty strings
-    if (paragraph.length === 0) {
-      return null;
-    }
     return paragraph;
   });
 

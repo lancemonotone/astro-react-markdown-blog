@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "@example/basics",
   "type": "module",
   "version": "0.0.1",
