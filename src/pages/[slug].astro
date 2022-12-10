@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { htmlEntityDecode } from "../utilities/htmlEntityDecode";
+import { slugify } from "../utilities/slugify";
+import { authorAndDate } from "../utilities/authorAndDate";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../posts/*.md");
+
+  return posts.map((post) => ({
+    params: {
+      slug: slugify(post.frontmatter.title),
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+  <section class="page-content">
+    <div class="container">
+      <h1>{htmlEntityDecode(frontmatter.title)}</h1>
+      <h5>
+        {authorAndDate(frontmatter.author, frontmatter.date)}
+      </h5>
+      <Content />
+      <div class="tags">
+        <strong>Tags:</strong>
+        {
+          frontmatter.tags.map((tag: string) => (
+            <a href={`/blog/tags/${slugify(tag)}`}>{tag}</a>
+          ))
+        }
+      </div>
+      <a href="/blog" class={"btn"}><strong>&laquo; Back to blog</strong></a>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  .page-content {
+    padding: 2rem 0;
+  }
+
+  .tags {
+    margin-block-end: 2rem;
+    a {
+      //   margin-inline-end: 0.5rem;
+      &:not(:last-child):after {
+        content: ", ";
+      }
+    }
+  }
+</style>

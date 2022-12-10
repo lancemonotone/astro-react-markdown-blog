@@ -1,16 +1,48 @@
 ---
 export interface CardProps {
   title: string;
-  description: string;
+  content: string;
+  link?: string;
   dark?: boolean;
 }
 
-const { title, description, dark = false } = Astro.props as CardProps;
+const { title, content, link, dark = false } = Astro.props as CardProps;
+
+const newlineToParagraph = (str: string) => {
+  const newlineChar = String.fromCharCode(10);
+  const arr = str.split(newlineChar).map((paragraph: string) => {
+    // trim whitespace
+    paragraph = paragraph.trim();
+    // remove empty strings
+    if (paragraph.length === 0) {
+      return null;
+    }
+    return paragraph;
+  });
+
+  // console.log(arr);
+
+  return arr;
+};
+
+const contentP = newlineToParagraph(content);
 ---
 
 <div class={`card ${dark ? "dark" : ""}`}>
-  <h3>{title}</h3>
-  <p>{description}</p>
+  <h3>
+    {
+      () => {
+        if (link) {
+          return <a href={link}>{title}</a>;
+        } else {
+          return title;
+        }
+      }
+    }
+  </h3>
+  <p>
+    {() => contentP.map((p: string) => <p>{p}</p>)}
+  </p>
 </div>
 
 <style lang="scss">
@@ -21,7 +53,7 @@ const { title, description, dark = false } = Astro.props as CardProps;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     &.dark {
-      background: #000;
+      background: var(--color-secondary);
       color: #fff;
     }
   }

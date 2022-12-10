@@ -2,17 +2,17 @@
 const data = [
   {
     title: "Zero JavaScript Runtime",
-    description:
-      "Astro renders HTML on the server and strips away any remaining, unused JavaScript.",
+    content: `Astro renders HTML on the server and strips away any remaining, unused JavaScript.
+     This means that Astro is fast, secure, and accessible by default.`,
   },
   {
     title: "The Power of Islands",
-    description:
+    content:
       "Need interactive UI? Load individual, non-blocking component islands in parallel.",
   },
   {
     title: "Lazy-Loading Islands",
-    description:
+    content:
       "Components only hydrate when they scroll into view. If you don't see it, Astro won't load it.",
   },
 ];
@@ -22,11 +22,7 @@ import Card from "../components/Card.astro";
 
 <section class="features">
   <div class="container">
-    {
-      data.map((card) => (
-        <Card title={card.title} description={card.description} />
-      ))
-    }
+    {data.map((card) => <Card title={card.title} content={card.content} />)}
   </div>
 </section>
 
