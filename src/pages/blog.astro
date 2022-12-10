@@ -1,0 +1,39 @@
+---
+import { MarkdownInstance } from "astro";
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+import Showcase from "../components/Showcase.astro";
+import { slugify } from "../utilities/slugify";
+import { ucWords } from "../utilities/ucWords";
+import { htmlEntityDecode } from "../utilities/htmlEntityDecode";
+import { excerptize } from "../utilities/excerptize";
+import { authorAndDate } from "../utilities/authorAndDate";
+
+const posts = await Astro.glob("../posts/*.md");
+---
+
+<Layout title={"Astro Blog"}>
+  <Showcase
+    heading={"Astro Blog"}
+    text={"Listen to an guy ramble on about frameworks."}
+    showExtra={false}
+  />
+  <section class="page-content">
+    <div class="container">
+      {
+        posts.map((post, index) => (
+          <Card
+            key={index}
+            title={ucWords(htmlEntityDecode(post.frontmatter.title))}
+            link={slugify(post.frontmatter.title)}
+            content={`<h6>${authorAndDate(
+              post.frontmatter.author,
+              post.frontmatter.date
+            )}</h6> 
+              ${excerptize(post)}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Layout>
