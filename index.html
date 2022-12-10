@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Hello!</title>
+  <link rel="stylesheet" href="/assets/index.49dff4a4.css" />
+<link rel="stylesheet" href="/assets/index.131a5dc0.css" />
+<link rel="stylesheet" href="/assets/blog.ce4095ee.css" />
+<link rel="stylesheet" href="/assets/_slug_.79fb4ec6.css" /></head>
+  <body>
+    <header class="header astro-2JWHDBHY">
+  <div class="container astro-2JWHDBHY">
+    <div class="logo astro-2JWHDBHY">
+      <a href="/" class="astro-2JWHDBHY">
+        <img src="/assets/logo.6498442f.svg" alt="" class="astro-2JWHDBHY">
+      </a>
+    </div>
+    <nav class="astro-2JWHDBHY">
+      <ul class="astro-2JWHDBHY">
+        <li class="astro-2JWHDBHY"><a href="/" class="astro-2JWHDBHY">Home</a></li>
+        <li class="astro-2JWHDBHY"><a href="/about" class="astro-2JWHDBHY">About</a></li>
+        <li class="astro-2JWHDBHY"><a href="/blog" class="astro-2JWHDBHY">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><section class="showcase astro-SKC27IZV">
+  <div class="showcase-text astro-SKC27IZV">
+    <h1 class="astro-SKC27IZV">I&#39;m an guy!</h1>
+    <p class="astro-SKC27IZV">
+      Build super fast HTML-first websites using your favorite JavaScript framworks
+    </p>
+  </div>
+
+  <div class="showcase-img astro-SKC27IZV">
+          <img class="logos logos--large astro-SKC27IZV" src="/assets/framework-logos.c0e34b5b.png" alt="">
+          <img class="logos logos--small astro-SKC27IZV" src="/assets/framework-logos-small.ec62e422.png" alt="">
+        </div><p class="showcase-demo astro-SKC27IZV">
+          <small class="astro-SKC27IZV">
+            This is a demo website used for the YouTube crash course
+          </small>
+        </p>
+</section>
+
+<section class="features astro-6P6ZRCTY">
+  <div class="container astro-6P6ZRCTY">
+    <div class="card  astro-ZGWVA3LJ">
+  <h3 class="astro-ZGWVA3LJ">
+    Zero JavaScript Runtime
+  </h3>
+  <p class="astro-ZGWVA3LJ">
+    <p class="astro-ZGWVA3LJ">Astro renders HTML on the server and strips away any remaining, unused JavaScript.</p><p class="astro-ZGWVA3LJ">This means that Astro is fast, secure, and accessible by default.</p>
+  </p>
+</div>
+
+<div class="card  astro-ZGWVA3LJ">
+  <h3 class="astro-ZGWVA3LJ">
+    The Power of Islands
+  </h3>
+  <p class="astro-ZGWVA3LJ">
+    <p class="astro-ZGWVA3LJ">Need interactive UI? Load individual, non-blocking component islands in parallel.</p>
+  </p>
+</div>
+
+<div class="card  astro-ZGWVA3LJ">
+  <h3 class="astro-ZGWVA3LJ">
+    Lazy-Loading Islands
+  </h3>
+  <p class="astro-ZGWVA3LJ">
+    <p class="astro-ZGWVA3LJ">Components only hydrate when they scroll into view. If you don&#39;t see it, Astro won&#39;t load it.</p>
+  </p>
+</div>
+
+
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h2>Get Started With Astro</h2>
+    <p>
+      Get a new Astro project up and running locally with our helpful
+      create-astro CLI wizard!
+    </p>
+    <astro-island uid="1GoJ6P" component-url="/Tabs.3159425a.js" component-export="default" renderer-url="/client.a1cd8c50.js" props="{&quot;headings&quot;:[1,&quot;[[0,\&quot;npm\&quot;],[0,\&quot;yarn\&quot;],[0,\&quot;pnpm\&quot;]]&quot;],&quot;content&quot;:[1,&quot;[[0,\&quot;$ npm create astro@latest\&quot;],[0,\&quot;$ yarn create astro\&quot;],[0,\&quot;$ pnpm create astro@latest\&quot;]]&quot;]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="tabs"><ul class="tabs-header"><li class="active">npm</li><li class="">yarn</li><li class="">pnpm</li></ul><div class="tabs-content"><div>$ npm create astro@latest</div></div></div></astro-island>
+    <h3>Start Building</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsum
+      deserunt inventore ut voluptate, officia maiores repellat tenetur
+      praesentium omnis est ex tempora a necessitatibus reiciendis at et
+      dignissimos. Ipsam eius consequuntur cupiditate aperiam porro, esse
+      laborum impedit nesciunt ut voluptatum assumenda aspernatur libero iusto
+      error molestias dolorum, necessitatibus labore?
+    </p>
+  </div>
+</section>
+    <footer class="footer astro-DDYGH7R7">
+  <div class="container astro-DDYGH7R7">
+    <div class="astro-DDYGH7R7">
+      <h3 class="astro-DDYGH7R7">Astro</h3>
+      <p class="astro-DDYGH7R7">
+        This is a demo website to show how the Astro framework works. Visit the <a href="https://astro.build" class="astro-DDYGH7R7">official website</a> to learn more.
+      </p>
+    </div>
+    <div class="astro-DDYGH7R7">
+      <h3 class="astro-DDYGH7R7">Links</h3>
+      <ul class="astro-DDYGH7R7">
+        <li class="astro-DDYGH7R7"><a href="/" class="astro-DDYGH7R7">Home</a></li>
+        <li class="astro-DDYGH7R7"><a href="/about" class="astro-DDYGH7R7">About</a></li>
+        <li class="astro-DDYGH7R7"><a href="/blog" class="astro-DDYGH7R7">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+  </body></html>
