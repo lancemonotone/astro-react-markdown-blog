@@ -1,12 +1,11 @@
 ---
-import Card from "../components/Card.astro";
+import CardBlog from "../components/CardBlog.astro";
 import Layout from "../layouts/Layout.astro";
 import Showcase from "../components/Showcase.astro";
 import { slugify } from "../utilities/slugify";
 import { ucWords } from "../utilities/ucWords";
 import { htmlEntityDecode } from "../utilities/htmlEntityDecode";
 import { excerptize } from "../utilities/excerptize";
-import { authorAndDate } from "../utilities/authorAndDate";
 
 const posts = await Astro.glob("../posts/*.md");
 ---
@@ -20,18 +19,20 @@ const posts = await Astro.glob("../posts/*.md");
   <section class="page-content">
     <div class="container">
       {
-        posts.map((post, index) => (
-          <Card
-            key={index}
-            title={ucWords(htmlEntityDecode(post.frontmatter.title))}
-            link={slugify(post.frontmatter.title)}
-            content={`<h6>${authorAndDate(
-              post.frontmatter.author,
-              post.frontmatter.date
-            )}</h6> 
-              ${excerptize(post)}`}
-          />
-        ))
+        posts.map((post, index) => {
+          // console.log(post.frontmatter);
+
+          return (
+            <CardBlog
+              key={index}
+              title={ucWords(htmlEntityDecode(post.frontmatter.title))}
+              date={post.frontmatter.date}
+              author={post.frontmatter.author}
+              link={slugify(post.frontmatter.title)}
+              content={excerptize(post)}
+            />
+          );
+        })
       }
     </div>
   </section>

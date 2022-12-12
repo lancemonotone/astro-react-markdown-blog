@@ -1,3 +1,3 @@
-export const addBasePath = (path: string) => {
-  return `/astro-react-markdown-blog${path}`;
+export const addBasePath = (path: string, addSlash: boolean = false) => {
+  return `/astro-react-markdown-blog${addSlash ? '/' + path : path}`;
 };

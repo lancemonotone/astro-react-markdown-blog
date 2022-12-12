@@ -1,17 +1,25 @@
 ---
-import { addBasePath } from "../utilities/addBasePath";
 import { newlineToParagraph } from "../utilities/newlineToParagraph";
+import AuthorAndDate from "./AuthorAndDate.astro";
 
 export interface CardProps {
   title: string;
   content: string;
+  author: string;
+  date: string;
   link?: string;
   dark?: boolean;
 }
 
-const { title, content, link, dark = false } = Astro.props as CardProps;
+const {
+  title,
+  content,
+  author,
+  date,
+  link,
+  dark = false,
+} = Astro.props as CardProps;
 
-const linkP = link ? addBasePath(link, true) : undefined;
 const contentP = newlineToParagraph(content);
 ---
 
@@ -19,14 +27,15 @@ const contentP = newlineToParagraph(content);
   <h3>
     {
       () => {
-        if (linkP) {
-          return <a href={linkP}>{title}</a>;
+        if (link) {
+          return <a href={link}>{title}</a>;
         } else {
           return title;
         }
       }
     }
   </h3>
+  <AuthorAndDate author={author} date={date} />
   <p>
     {() => contentP.map((p: string) => <p>{p}</p>)}
   </p>
@@ -40,12 +49,7 @@ const contentP = newlineToParagraph(content);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     &.dark {
-      background-color: var(--color-secondary);
-      background-image: linear-gradient(
-        to bottom,
-        var(--color-primary),
-        rgb(15 23 42 / 0)
-      );
+      background: var(--color-secondary);
       color: #fff;
     }
   }

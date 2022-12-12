@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AuthorAndDate from "../components/AuthorAndDate.astro";
 import { htmlEntityDecode } from "../utilities/htmlEntityDecode";
 import { slugify } from "../utilities/slugify";
-import { authorAndDate } from "../utilities/authorAndDate";
+import { addBasePath } from "../utilities/addBasePath";
 
 export async function getStaticPaths() {
   const posts = await Astro.glob("../posts/*.md");
@@ -24,19 +25,23 @@ const { Content, frontmatter } = Astro.props.post;
   <section class="page-content">
     <div class="container">
       <h1>{htmlEntityDecode(frontmatter.title)}</h1>
-      <h5>
-        {authorAndDate(frontmatter.author, frontmatter.date)}
-      </h5>
+
+      <AuthorAndDate date={frontmatter.date} author={frontmatter.author} />
+
       <Content />
+
       <div class="tags">
         <strong>Tags:</strong>
         {
           frontmatter.tags.map((tag: string) => (
-            <a href={`/blog/tags/${slugify(tag)}`}>{tag}</a>
+            <a href={addBasePath(`/blog/tags/${slugify(tag)}`)}>{tag}</a>
           ))
         }
       </div>
-      <a href="/blog" class={"btn"}><strong>&laquo; Back to blog</strong></a>
+
+      <a href={addBasePath("/blog")} class={"btn"}
+        ><strong>&laquo; Back to blog</strong>
+      </a>
     </div>
   </section>
 </Layout>
