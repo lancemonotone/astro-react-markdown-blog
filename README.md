@@ -1,4 +1,4 @@
-# Astro Crash Course
+# Astro React Markdown Blog
 
 This is a simple blog created with [Astro](https://astro.build/). It's a great way to get started with Astro, and a great way to learn more about Astro.
 
